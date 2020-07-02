@@ -18,9 +18,11 @@ class SpellsRvAdapter(var spellList: ArrayList<Spell>, var _context:Context) : R
         val v = LayoutInflater.from(viewGroup?.context).inflate(R.layout.spell_list_item, viewGroup, false)
         return ViewHolder(v);
     }
+
     override fun getItemCount(): Int {
         return spellList.size // Spell list count
     }
+
     override fun onBindViewHolder(holder:ViewHolder, index: Int) {
         // Fill list item with data
         holder.tv_spell?.text = spellList[index].spell
@@ -28,18 +30,13 @@ class SpellsRvAdapter(var spellList: ArrayList<Spell>, var _context:Context) : R
         holder.tv_effect?.text = Html.fromHtml("<b>Effect:</b> " + spellList[index].effect)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(_context, spellList[index].spell + " clicked!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(_context, spellList[index].spell, Toast.LENGTH_SHORT).show()
         }
     }
+
     class ViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
         val tv_spell = itemView.findViewById<TextView>(R.id.tv_spell)
         val tv_type = itemView.findViewById<TextView>(R.id.tv_type)
         val tv_effect = itemView.findViewById<TextView>(R.id.tv_effect)
-    }
-
-    fun updateList(list: ArrayList<Spell>) {
-        //string arraylist is for example pass your data
-        spellList = list
-        this.notifyDataSetChanged()
     }
 }

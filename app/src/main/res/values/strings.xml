@@ -3,7 +3,7 @@
     <string name="house">House</string>
     <string name="view_more">Click to view more ...</string>
     <string name="stud_registry">Student Registry</string>
-    <string name="spell">Spell</string>
+    <string name="spell">Spells</string>
     <string name="hogwarts_motto">Draco dormiens nunquam titillandus</string>
     <string name="founder">Founder: Goderic Gryffindo</string>
     <string name="character">Character</string>
@@ -11,4 +11,22 @@
     <string name="spell_effect">makes a person happy and giddy</string>
     <string name="hogwarts_home">Dashboard</string>
     <string name="exit">Exit</string>
+    <string name="mascot">Mascot: </string>
+    <string name="head_of_house">Head of house: </string>
+    <string name="house_ghost">House ghost: </string>
+    <string name="colmn_founder">Founder: </string>
+    <string name="school">School: </string>
+    <string name="values">Values: </string>
+    <string name="colours">Colours: </string>
+    <string name="members">Members</string>
+    <string name="name">Name</string>
+    <string name="role">Role: </string>
+    <string name="colmn_ministry">Ministry of magic: </string>
+    <string name="order">Order of the phoenix: </string>
+    <string name="army">Dumbledore\'s army: </string>
+    <string name="death_eater">Death Eater:</string>
+    <string name="house_column">"House: "</string>
+    <string name="blood_status">"Blood status: "</string>
+    <string name="species">Species</string>
+    <string name="close">Close</string>
 </resources>

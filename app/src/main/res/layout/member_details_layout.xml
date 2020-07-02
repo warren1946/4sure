@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:layout_weight="0.8">
+
+            <!--Table header-->
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="7dp"
+                android:text="@string/name"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <!--Row role-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/role"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_role"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row house-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/house_column"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_house"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row school-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/school"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_school"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row ministryOfMagic-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/colmn_ministry"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_ministry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row orderOfThePhoenix-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/order"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row dumbledoresArmy-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/army"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_army"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row deathEater-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/death_eater"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_death_eater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row bloodStatus-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/blood_status"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_blood_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+            <!--Row species-->
+            <TableRow  android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/species"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryText" />
+                <TextView
+                    android:id="@+id/tv_species"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1"
+                    android:text=" "
+                    android:textStyle="italic"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="14dp"
+                    android:layout_weight="7"/>
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="end"
+            android:background="@color/white"
+            android:shadowColor="@color/white"
+            android:clickable="true"
+            android:text="@string/close"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>

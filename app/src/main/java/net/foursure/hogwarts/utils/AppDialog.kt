@@ -2,24 +2,28 @@ package net.foursure.hogwarts.utils
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.view.Window
+import android.widget.Button
+import android.widget.TextView
+import com.foursure.one.hogwarts.R
 import net.foursure.hogwarts.MainActivity
 import net.foursure.hogwarts.SplashActivity
+import net.foursure.hogwarts.models.Character
 
 
 class AppDialog(){
     // Global variables
     private var _context: Context?=null
-    private var _activity: Activity?=null
 
-    constructor(context:Context, activity: Activity):this(){
+    constructor(context:Context):this(){
         this._context = context
-        this._activity = activity
     }
 
-    // Create and show dialog
+    // Create and show a generic alert dialog
     fun showBeforeExit(title:String, message:String){
         // Create and show the alert
         val dialogBuilder = AlertDialog.Builder(_context)
@@ -32,17 +36,11 @@ class AppDialog(){
                     dialog, id -> dialog.dismiss()
             })
 
-        // Display dialog
-        displayDialog(dialogBuilder, title)
-    }
-
-    fun displayDialog(dialogBuilder:AlertDialog.Builder, title:String){
-        // Create dialog box
+        // Create and display dialog
         val alert = dialogBuilder.create()
         // Set dialog alert title
         alert.setTitle(title)
         // show alert dialog
         alert.show()
     }
-
 }

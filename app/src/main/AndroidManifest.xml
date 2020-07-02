@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.foursure.one.hogwarts">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -25,14 +26,18 @@
         <activity
             android:name="net.foursure.hogwarts.HouseActivity"
             android:label="@string/house"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name="net.foursure.hogwarts.StudentRegistryActivity"
             android:label="@string/stud_registry"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name="net.foursure.hogwarts.SpellsActivity"
             android:label="@string/spell"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="net.foursure.hogwarts.HouseDetailsActivity"
+            android:label="@string/house"
             android:theme="@style/AppTheme"/>
     </application>
 

@@ -92,22 +92,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_exit -> {
-                showBeforeExit() // Show dialog before exiting the app
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     fun getHouseList(){
         // Url to make a request
         val url = Constants.CONS_HOUSE_LIST + "?key=" + Constants.CONS_API_KEY
@@ -154,6 +138,26 @@ class MainActivity : AppCompatActivity() {
         }
         }, Response.ErrorListener { error -> error.printStackTrace() })
         requestQueue?.add(request)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_exit -> {
+                showBeforeExit() // Show dialog before exiting the app
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onBackPressed() {
+        showBeforeExit()
     }
 
     // Create and show dialog

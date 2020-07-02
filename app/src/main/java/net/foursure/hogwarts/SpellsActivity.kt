@@ -42,6 +42,10 @@ class SpellsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spells)
 
+        // Display back button on the toolbar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         //Initial recycler view and shimmer layout
         recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         shimmerLayout = findViewById<ShimmerFrameLayout>(R.id.shimmerLayout)
@@ -61,29 +65,13 @@ class SpellsActivity : AppCompatActivity() {
         getSpellList()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_exit -> {
-                showBeforeExit() // Show dialog before exiting the app
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     fun getSpellList() {
         // Url to make a request
         val url = Constants.CONS_SPELL_LIST + "?key=" + Constants.CONS_API_KEY
         // Make api call
         val request = JsonArrayRequest(Request.Method.GET, url, null, Response.Listener {
                 response ->try {
-            // Process api call response and assign to the view
+            // Process api call response and add data to the list
             for (i in 0 until response.length()) {
                 val jsonSpell = response.getJSONObject(i)
 
@@ -97,10 +85,11 @@ class SpellsActivity : AppCompatActivity() {
                 spellList?.add(spell)
             }
 
-            // Update adapter with new data
+            // Update adapter with new data and close shimmer
             rvAdapter?.notifyDataSetChanged()
             shimmerLayout?.stopShimmer()
             shimmerLayout?.visibility = View.GONE
+
         } catch (e: JSONException) {
             Log.e(LOG, e.message)
             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
@@ -111,33 +100,12 @@ class SpellsActivity : AppCompatActivity() {
         requestQueue?.add(request)
     }
 
-    // Create and show dialog
-    fun showBeforeExit(){
-        // Create and show the alert
-        val dialogBuilder = AlertDialog.Builder(this)
-        // set message of alert dialog
-        dialogBuilder.setMessage("Are you sure you want to exit the app?")
-            // if the dialog is cancelable
-            .setCancelable(false)
-            // positive button text and action
-            .setPositiveButton("Yes", DialogInterface.OnClickListener {
-                    dialog, id -> clearStackAndExit()
-            })
-            // negative button text and action
-            .setNegativeButton("No", DialogInterface.OnClickListener {
-                    dialog, id -> dialog.cancel()
-            })
-
-        // create dialog box
-        val alert = dialogBuilder.create()
-        // set title for alert dialog box
-        alert.setTitle("Exit")
-        // show alert dialog
-        alert.show()
+    override fun onBackPressed() {
+        super.onBackPressed() // Activated when physical hardware back button is pressed
     }
 
-    fun clearStackAndExit(){
-        finishAffinity()
-        System.exit(0)
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed() // Activated when toolbar/actionbar back button is pressed
+        return true
     }
 }
