@@ -1,9 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="net.foursure.hogwarts.MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/hogwarts_logo"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hogwarts_motto"
+        android:textColor="@color/colorSecondaryText"
+        android:textStyle="italic"
+        android:textSize="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <!-- House start-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/house_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/house_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/wizard_hat"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/house_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/house"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="22dp"
+                android:layout_toRightOf="@id/house_icon"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/house_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/view_more"
+                android:textColor="@color/colorSecondaryText"
+                android:textStyle="italic"
+                android:textSize="12dp"
+                android:layout_toRightOf="@id/house_icon"
+                android:layout_below="@id/house_title"
+                android:layout_marginLeft="10dp"
+                />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/house_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:maxLines="1"
+                android:text="0"
+                android:textColor="@color/colorSecondaryText" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- House end-->
+
+    <!-- Registry start-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/reg_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/reg_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/wizard"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/reg_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stud_registry"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="22dp"
+                android:layout_toRightOf="@id/reg_icon"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/reg_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/view_more"
+                android:textColor="@color/colorSecondaryText"
+                android:textStyle="italic"
+                android:textSize="12dp"
+                android:layout_toRightOf="@id/reg_icon"
+                android:layout_below="@id/reg_title"
+                android:layout_marginLeft="10dp"
+                />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_blue_dark"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/reg_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:maxLines="1"
+                android:text="0"
+                android:textColor="@color/colorSecondaryText" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Registry end-->
+
+    <!-- Spell start-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/spell_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/spell_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/spell_book"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/spell_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spell"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="22dp"
+                android:layout_toRightOf="@id/spell_icon"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/spell_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/view_more"
+                android:textColor="@color/colorSecondaryText"
+                android:textStyle="italic"
+                android:textSize="12dp"
+                android:layout_toRightOf="@id/spell_icon"
+                android:layout_below="@id/spell_title"
+                android:layout_marginLeft="10dp"
+                />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="40dp"
+                android:background="@android:color/holo_blue_dark"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/spell_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:maxLines="1"
+                android:text="0"
+                android:textColor="@color/colorSecondaryText" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Spell end-->
+</LinearLayout>

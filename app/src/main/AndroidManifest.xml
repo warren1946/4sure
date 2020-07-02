@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name="net.foursure.hogwarts.MainActivity"></activity>
         <activity android:name="net.foursure.hogwarts.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="net.foursure.hogwarts.MainActivity"
+            android:label="@string/hogwarts_home"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="net.foursure.hogwarts.HouseActivity"
+            android:label="@string/house"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name="net.foursure.hogwarts.StudentRegistryActivity"
+            android:label="@string/stud_registry"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name="net.foursure.hogwarts.SpellsActivity"
+            android:label="@string/spell"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

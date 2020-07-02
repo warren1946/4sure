@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Hogwarts</string>
+    <string name="house">House</string>
+    <string name="view_more">Click to view more ...</string>
+    <string name="stud_registry">Student Registry</string>
+    <string name="spell">Spell</string>
+    <string name="hogwarts_motto">Draco dormiens nunquam titillandus</string>
+    <string name="founder">Founder: Goderic Gryffindo</string>
+    <string name="character">Character</string>
+    <string name="spell_type">Charm</string>
+    <string name="spell_effect">makes a person happy and giddy</string>
+    <string name="hogwarts_home">Dashboard</string>
+    <string name="exit">Exit</string>
 </resources>
