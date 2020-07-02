@@ -2,6 +2,7 @@ package net.foursure.hogwarts
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -21,7 +22,9 @@ import com.foursure.one.hogwarts.R
 import net.foursure.hogwarts.adapter.HouseRvAdapter
 import net.foursure.hogwarts.models.House
 import net.foursure.hogwarts.models.Member
+import net.foursure.hogwarts.utils.AppDialog
 import net.foursure.hogwarts.utils.Constants
+import net.foursure.hogwarts.utils.NetworkManager
 import org.json.JSONException
 
 class HouseActivity : AppCompatActivity() {
@@ -61,7 +64,14 @@ class HouseActivity : AppCompatActivity() {
 
         // Request spell list from the api textview
         requestQueue = Volley.newRequestQueue(this)
-        getHouseList()
+
+        // Check for internet connection before making APi calls
+        if(NetworkManager().isOnline(this)) {
+            getHouseList()
+        }else{
+            AppDialog().showConnectionErrorMessage(this)
+        }
+
     }
 
     fun getHouseList() {

@@ -18,7 +18,9 @@ import com.foursure.one.hogwarts.R
 import net.foursure.hogwarts.adapter.MemberRvAdapter
 import net.foursure.hogwarts.models.House
 import net.foursure.hogwarts.models.Member
+import net.foursure.hogwarts.utils.AppDialog
 import net.foursure.hogwarts.utils.Constants
+import net.foursure.hogwarts.utils.NetworkManager
 import org.json.JSONException
 
 class HouseDetailsActivity : AppCompatActivity() {
@@ -85,8 +87,13 @@ class HouseDetailsActivity : AppCompatActivity() {
         // set the recyclerView to the adapter
         recyclerView?.adapter = rvAdapter;
 
-        // Populate data
-        getHouse(house_id!!)
+        // Check for internet connection before making APi calls
+        if(NetworkManager().isOnline(this)) {
+            // Populate data
+            getHouse(house_id!!)
+        }else{
+            AppDialog().showConnectionErrorMessage(this)
+        }
     }
 
     fun getHouse(_id: String) {

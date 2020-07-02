@@ -24,6 +24,7 @@ import net.foursure.hogwarts.adapter.SpellsRvAdapter
 import net.foursure.hogwarts.models.Spell
 import net.foursure.hogwarts.utils.AppDialog
 import net.foursure.hogwarts.utils.Constants
+import net.foursure.hogwarts.utils.NetworkManager
 import org.json.JSONException
 
 class SpellsActivity : AppCompatActivity() {
@@ -62,7 +63,13 @@ class SpellsActivity : AppCompatActivity() {
 
         // Request spell list from the api textview
         requestQueue = Volley.newRequestQueue(this)
-        getSpellList()
+
+        // Check for internet connection before making APi calls
+        if(NetworkManager().isOnline(this)) {
+            getSpellList()
+        }else{
+            AppDialog().showConnectionErrorMessage(this)
+        }
     }
 
     fun getSpellList() {

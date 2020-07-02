@@ -18,7 +18,9 @@ import com.android.volley.toolbox.Volley
 import com.foursure.one.hogwarts.R
 import net.foursure.hogwarts.models.Character
 import net.foursure.hogwarts.models.Member
+import net.foursure.hogwarts.utils.AppDialog
 import net.foursure.hogwarts.utils.Constants
+import net.foursure.hogwarts.utils.NetworkManager
 import org.json.JSONException
 
 class MemberRvAdapter(var memberList: ArrayList<Member>, var _context: Context) : RecyclerView.Adapter<MemberRvAdapter.ViewHolder>() {
@@ -38,8 +40,13 @@ class MemberRvAdapter(var memberList: ArrayList<Member>, var _context: Context) 
         holder.tv_name?.text = memberList[index].name
 
         holder.itemView.setOnClickListener {
-            // Display member details dialog
-            getCharacter(memberList[index]._id.toString())
+            // Check for internet connection before making APi calls
+            if(NetworkManager().isOnline(_context)) {
+                // Display member details dialog
+                getCharacter(memberList[index]._id.toString())
+            }else{
+                AppDialog().showConnectionErrorMessage(_context)
+            }
         }
     }
 
@@ -109,19 +116,38 @@ class MemberRvAdapter(var memberList: ArrayList<Member>, var _context: Context) 
                 response ->try {
             // Process api call response
             val character:Character = Character()
-            character._id = response.getString("_id")
-            character.name = response.getString("name")
+            if(response.has("_id"))
+                character._id = response.getString("_id")
+
+            if(response.has("name"))
+                character.name = response.getString("name")
+
             if(response.has("role"))
                 character.role = response.getString("role")
-            character.house = response.getString("house")
+
+            if(response.has("house"))
+                character.house = response.getString("house")
+
             if(response.has("school"))
                 character.school = response.getString("school")
-            character.ministryOfMagic = response.getBoolean("ministryOfMagic")
-            character.orderOfThePhoenix = response.getBoolean("orderOfThePhoenix")
-            character.dumbledoresArmy = response.getBoolean("dumbledoresArmy")
-            character.deathEater = response.getBoolean("deathEater")
-            character.bloodStatus = response.getString("bloodStatus")
-            character.species = response.getString("species")
+
+            if(response.has("ministryOfMagic"))
+                character.ministryOfMagic = response.getBoolean("ministryOfMagic")
+
+            if(response.has("orderOfThePhoenix"))
+                character.orderOfThePhoenix = response.getBoolean("orderOfThePhoenix")
+
+            if(response.has("dumbledoresArmy"))
+                character.dumbledoresArmy = response.getBoolean("dumbledoresArmy")
+
+            if(response.has("deathEater"))
+                character.deathEater = response.getBoolean("deathEater")
+
+            if(response.has("bloodStatus"))
+                character.bloodStatus = response.getString("bloodStatus")
+
+            if(response.has("species"))
+                character.species = response.getString("species")
 
             showMemberDialog(character)
 

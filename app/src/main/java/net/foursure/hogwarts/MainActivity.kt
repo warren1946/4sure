@@ -24,6 +24,7 @@ import net.foursure.hogwarts.models.House
 import net.foursure.hogwarts.models.Member
 import net.foursure.hogwarts.utils.AppDialog
 import net.foursure.hogwarts.utils.Constants
+import net.foursure.hogwarts.utils.NetworkManager
 import org.json.JSONException
 
 class MainActivity : AppCompatActivity() {
@@ -62,9 +63,15 @@ class MainActivity : AppCompatActivity() {
 
         // Count number of houses, student registry and spells from api and assign to textview
         requestQueue = Volley.newRequestQueue(this)
-        getHouseList()
-        getStudentRegistryList()
-        getSpellList()
+
+        // Check for internet connection before making APi calls
+        if(NetworkManager().isOnline(this)) {
+            getHouseList()
+            getStudentRegistryList()
+            getSpellList()
+        }else{
+            AppDialog().showConnectionErrorMessage(this)
+        }
 
     }
 
@@ -78,18 +85,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun gotoHouseScreen() { // Navigate to house screen
-        val intent = Intent(this, HouseActivity::class.java)
-        startActivity(intent)
+        // Check for internet connection before making APi calls
+        if(NetworkManager().isOnline(this)) {
+            val intent = Intent(this, HouseActivity::class.java)
+            startActivity(intent)
+        }else{
+            AppDialog().showConnectionErrorMessage(this)
+        }
     }
 
-    private fun gotoStudentRegistry() { // Navigate to student registry screen
-        val intent = Intent(this, StudentRegistryActivity::class.java)
-        startActivity(intent)
+    private fun gotoStudentRegistry() { // Navigate to student registry screen)
+        // Check for internet connection before making APi calls
+        if(NetworkManager().isOnline(this)) {
+            val intent = Intent(this, StudentRegistryActivity::class.java)
+            startActivity(intent)
+        }else{
+            AppDialog().showConnectionErrorMessage(this)
+        }
     }
 
     private fun gotoSpells() { // Navigate to spells screen
-        val intent = Intent(this, SpellsActivity::class.java)
-        startActivity(intent)
+        // Check for internet connection before making APi calls
+        if(NetworkManager().isOnline(this)) {
+            val intent = Intent(this, SpellsActivity::class.java)
+            startActivity(intent)
+        }else{
+            AppDialog().showConnectionErrorMessage(this)
+        }
     }
 
     fun getHouseList(){

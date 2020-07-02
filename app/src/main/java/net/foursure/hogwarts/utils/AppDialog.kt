@@ -16,17 +16,11 @@ import net.foursure.hogwarts.models.Character
 
 
 class AppDialog(){
-    // Global variables
-    private var _context: Context?=null
-
-    constructor(context:Context):this(){
-        this._context = context
-    }
 
     // Create and show a generic alert dialog
-    fun showBeforeExit(title:String, message:String){
+    fun showMessage(context: Context, title:String, message:String){
         // Create and show the alert
-        val dialogBuilder = AlertDialog.Builder(_context)
+        val dialogBuilder = AlertDialog.Builder(context)
         // Set dialog alert message
         dialogBuilder.setMessage(message)
             // Don't allow the dialog to be canceled
@@ -36,6 +30,26 @@ class AppDialog(){
                     dialog, id -> dialog.dismiss()
             })
 
+        showDialog(dialogBuilder, title)
+    }
+
+    // Create and show a connection error alert dialog
+    fun showConnectionErrorMessage(context: Context){
+        // Create and show the alert
+        val dialogBuilder = AlertDialog.Builder(context)
+        // Set dialog alert message
+        dialogBuilder.setMessage("Please make sure your device has internet connection before you continue.")
+            // Don't allow the dialog to be canceled
+            .setCancelable(false)
+            // Set positive button text and action
+            .setPositiveButton("OK", DialogInterface.OnClickListener {
+                    dialog, id -> dialog.dismiss()
+            })
+
+        showDialog(dialogBuilder, "Connection error");
+    }
+
+    fun showDialog(dialogBuilder:AlertDialog.Builder, title:String){
         // Create and display dialog
         val alert = dialogBuilder.create()
         // Set dialog alert title
